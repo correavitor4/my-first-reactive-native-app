@@ -37,26 +37,34 @@ const Styles = StyleSheet.create({
         textAlignVertical:'bottom',
         textAlign:'right'
     },
+
     NumberButtons:{
+        flex:1,
         minHeight:'25%',
         minWidth:'25%',
-       
-        
+        alignItems:'center',
+        justifyContent:'center',
         backgroundColor:'white'
     },
 
     NumberButtonsEquals:{
         minHeight:'25%',
         minWidth:'50%',
-        textAlignVertical:"center",
+        alignItems:'center',
+        justifyContent:'center',
+        textAlign:"center",
         
         backgroundColor:'white'
     },
 
     TextButtonNumbers:{
         
+        
+        alignItems:'center',
+        justifyContent:'center',
         textAlign:"center",
-        color:'black'
+        color:'black',
+        fontSize:21
     }
     
 })
