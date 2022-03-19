@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Display from './Components/Display/Display';
+import Display from './Components/Display/CalculatorScreen';
 
 
 export default function App() {
