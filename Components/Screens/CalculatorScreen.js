@@ -3,24 +3,91 @@ import { View ,StyleSheet, Text, Button} from "react-native";
 import { Styles} from "./Styles";
 import  {CalculatorButtons}  from "../CalculatorButtons/CalculatorButtons";
 import { func } from "prop-types";
+import { boolean, expression, i, string } from "mathjs";
+import CalculatorScript from "../../Scripts/CalculatorScript";
+
+
+
+
 
 
 export default function CalculatorScreen(){
     
-    var expression = ''
-    const [OperationsText,setOperationsText] = useState('')
+    const calcScript = new CalculatorScript()
+    
+  
+    const [OperationsText,setOperationsText] = useState(calcScript.getExpression())
     const [ResultText,setResultText] = useState('0')
 
 
+    
+
     function handleCallback(childElementData){
-        addToExpression(childElementData)
+        if(childElementData==='='){
+            if(!validateExpression(OperationsText)){
+                console.log("entrada invá")
+                setResultText('Entrada inválida!')
+                
+            }
+            else{
+                console.log("mas executou")
+                setOperationsText(calcScript.calculate(OperationsText)) 
+            
+            }
+        }
+        else{
+            setOperationsText(OperationsText+childElementData)
+        }
+        
+    }
+
+    function validateExpression(expression){
+        let lastIsNumber= false
+        let changeLastIsNumberToFalseFlag = false 
+
+        const notNumbers = ['-','+','*','/']
+
+        for (let index = 0; index < expression.length; index++) {
+            changeLastIsNumberToFalseFlag=false
+            const element = expression[index];
+            for (let i = 0; i< notNumbers.length; i++) {
+                const notNumberElement = notNumbers[i];
+                if(notNumberElement==element){
+                    console.log('não número: '+element)
+                    if(lastIsNumber==false){
+                        console.log('aaa')
+                        return false
+                    }
+                    lastIsNumber=false
+                    changeLastIsNumberToFalseFlag=true
+                }
+                else{
+                    console.log('número: '+element)
+                }
+                
+            }
+
+            if(!changeLastIsNumberToFalseFlag){
+                lastIsNumber=true
+            }
+
+            
+            
+        }
+
+        for (let index = 0; index < notNumbers.length; index++) {
+            const element = notNumbers[index];
+            if(element===expression[expression.length-1]){
+                return false
+            }
+            
+        }
+
+        return true
+       
     }
     
-    function addToExpression(expressionToAdd){
-        expression += expressionToAdd
-        console.log(expression)
-        setOperationsText(expression)
-    }
+    
         
 
     return(
