@@ -10,13 +10,13 @@ const Styles = StyleSheet.create({
     },
     ViewDisplay: {
         
-        flex:1,
+        flex:2,
         backgroundColor: 'black'
 
     },
 
     ViewButtonsAndFunctions:{
-        flex:2,
+        flex:3,
         backgroundColor:'gray',
         flexDirection:"row",
         flexWrap:'wrap'
@@ -39,9 +39,8 @@ const Styles = StyleSheet.create({
     },
 
     NumberButtons:{
-        flex:1,
         minHeight:'25%',
-        minWidth:'25%',
+        minWidth:'20%',
         alignItems:'center',
         justifyContent:'center',
         backgroundColor:'white'
@@ -49,7 +48,7 @@ const Styles = StyleSheet.create({
 
     NumberButtonsEquals:{
         minHeight:'25%',
-        minWidth:'50%',
+        minWidth:'40%',
         alignItems:'center',
         justifyContent:'center',
         textAlign:"center",

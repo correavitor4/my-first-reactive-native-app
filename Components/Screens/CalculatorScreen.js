@@ -25,13 +25,13 @@ export default function CalculatorScreen(){
     function handleCallback(childElementData){
         if(childElementData==='='){
             if(!validateExpression(OperationsText)){
-                console.log("entrada invá")
+                
                 setResultText('Entrada inválida!')
                 
             }
             else{
-                console.log("mas executou")
-                setOperationsText(calcScript.calculate(OperationsText)) 
+                setResultText(calcScript.calculate(OperationsText))
+                
             
             }
         }
@@ -53,16 +53,16 @@ export default function CalculatorScreen(){
             for (let i = 0; i< notNumbers.length; i++) {
                 const notNumberElement = notNumbers[i];
                 if(notNumberElement==element){
-                    console.log('não número: '+element)
+                    
                     if(lastIsNumber==false){
-                        console.log('aaa')
+                        
                         return false
                     }
                     lastIsNumber=false
                     changeLastIsNumberToFalseFlag=true
                 }
                 else{
-                    console.log('número: '+element)
+                    
                 }
                 
             }
@@ -100,20 +100,26 @@ export default function CalculatorScreen(){
                 <CalculatorButtons textValue={'7'} buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'8'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'9'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
-                <CalculatorButtons textValue={'-'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+                <CalculatorButtons textValue={'AC'}  buttonStyle ={Styles.NumberButtonsEquals} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
 
                 <CalculatorButtons textValue={'4'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'5'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'6'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'+'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+                <CalculatorButtons textValue={'<-'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+
 
                 <CalculatorButtons textValue={'1'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'2'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'3'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'*'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+                <CalculatorButtons textValue={'-'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+
 
                 <CalculatorButtons textValue={'/'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
                 <CalculatorButtons textValue={'0'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+                <CalculatorButtons textValue={'.'}  buttonStyle ={Styles.NumberButtons} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
+                
                 <CalculatorButtons textValue={'='}  buttonStyle ={Styles.NumberButtonsEquals} textButtonStyle={Styles.TextButtonNumbers} parentCallback={handleCallback}/>
             </View>
         </View>
