@@ -35,7 +35,9 @@ export default function CalculatorScreen(){
             
             // }
             try{
-                setResultText(calcScript.calculate(OperationsText))
+                const resultCalcScript = calcScript.calculate(OperationsText)
+                setResultText(resultCalcScript)
+                setOperationsText(resultCalcScript)
             }
             catch{
                 setResultText('Entrada inválida')
