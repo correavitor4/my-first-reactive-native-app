@@ -24,15 +24,22 @@ export default function CalculatorScreen(){
 
     function handleCallback(childElementData){
         if(childElementData==='='){
-            if(!validateExpression(OperationsText)){
+            // if(!validateExpression(OperationsText)){
                 
-                setResultText('Entrada inválida!')
+            //     setResultText('Entrada inválida!')
                 
-            }
-            else{
-                setResultText(calcScript.calculate(OperationsText))
+            // }
+            // else{
+            //     setResultText(calcScript.calculate(OperationsText))
                 
             
+            // }
+            try{
+                setResultText(calcScript.calculate(OperationsText))
+            }
+            catch{
+                setResultText('Entrada inválida')
+                console.log("Script não conseguiu calcular a expressão")
             }
 
             return 
@@ -55,51 +62,51 @@ export default function CalculatorScreen(){
         
     }
 
-    function validateExpression(expression){
-        let lastIsNumber= false
-        let changeLastIsNumberToFalseFlag = false 
+    // function validateExpression(expression){
+    //     let lastIsNumber= false
+    //     let changeLastIsNumberToFalseFlag = false 
 
-        const notNumbers = ['-','+','*','/']
+    //     const notNumbers = ['-','+','*','/']
 
-        for (let index = 0; index < expression.length; index++) {
-            changeLastIsNumberToFalseFlag=false
-            const element = expression[index];
-            for (let i = 0; i< notNumbers.length; i++) {
-                const notNumberElement = notNumbers[i];
-                if(notNumberElement==element){
+    //     for (let index = 0; index < expression.length; index++) {
+    //         changeLastIsNumberToFalseFlag=false
+    //         const element = expression[index];
+    //         for (let i = 0; i< notNumbers.length; i++) {
+    //             const notNumberElement = notNumbers[i];
+    //             if(notNumberElement==element){
                     
-                    if(lastIsNumber==false){
+    //                 if(lastIsNumber==false){
                         
-                        return false
-                    }
-                    lastIsNumber=false
-                    changeLastIsNumberToFalseFlag=true
-                }
-                else{
+    //                     return false
+    //                 }
+    //                 lastIsNumber=false
+    //                 changeLastIsNumberToFalseFlag=true
+    //             }
+    //             else{
                     
-                }
+    //             }
                 
-            }
+    //         }
 
-            if(!changeLastIsNumberToFalseFlag){
-                lastIsNumber=true
-            }
+    //         if(!changeLastIsNumberToFalseFlag){
+    //             lastIsNumber=true
+    //         }
 
             
             
-        }
+    //     }
 
-        for (let index = 0; index < notNumbers.length; index++) {
-            const element = notNumbers[index];
-            if(element===expression[expression.length-1]){
-                return false
-            }
+    //     for (let index = 0; index < notNumbers.length; index++) {
+    //         const element = notNumbers[index];
+    //         if(element===expression[expression.length-1]){
+    //             return false
+    //         }
             
-        }
+    //     }
 
-        return true
+    //     return true
        
-    }
+    // }
     
     
         
