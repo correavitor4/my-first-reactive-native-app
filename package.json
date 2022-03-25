@@ -20,7 +20,8 @@
     "react-native-gesture-handler": "~2.1.0",
     "react-native-web": "0.17.1",
     "styled-components": "^5.3.3",
-    "web-pack": "^1.0.0"
+    "web-pack": "^1.0.0",
+    "expo-updates": "~0.11.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

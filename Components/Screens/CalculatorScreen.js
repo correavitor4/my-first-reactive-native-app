@@ -16,7 +16,7 @@ export default function CalculatorScreen(){
     const calcScript = new CalculatorScript()
     
   
-    const [OperationsText,setOperationsText] = useState(calcScript.getExpression())
+    const [OperationsText,setOperationsText] = useState('')
     const [ResultText,setResultText] = useState('0')
 
 
@@ -34,10 +34,24 @@ export default function CalculatorScreen(){
                 
             
             }
+
+            return 
         }
-        else{
-            setOperationsText(OperationsText+childElementData)
+        if(childElementData==='AC'){
+            setOperationsText('')
+            setResultText('0')
+            return
         }
+
+        if(childElementData==='<-'){
+            let newString = OperationsText.slice(0,-1)
+            setOperationsText(newString)
+            return
+        }
+
+        
+        setOperationsText(OperationsText+childElementData)
+        
         
     }
 

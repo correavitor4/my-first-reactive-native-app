@@ -10,16 +10,19 @@ const Styles = StyleSheet.create({
     },
     ViewDisplay: {
         
-        flex:2,
+        flex:1,
         backgroundColor: 'black'
 
     },
 
     ViewButtonsAndFunctions:{
-        flex:3,
+        padding:0,
+        margin:0,
+        flex:1,
         backgroundColor:'gray',
         flexDirection:"row",
         flexWrap:'wrap'
+        
         
     },
     OperationsText:{
@@ -39,6 +42,10 @@ const Styles = StyleSheet.create({
     },
 
     NumberButtons:{
+        borderWidth:0.5,
+        borderColor:'white',
+        padding:0,
+        margin:0,
         minHeight:'25%',
         minWidth:'20%',
         alignItems:'center',
@@ -57,8 +64,8 @@ const Styles = StyleSheet.create({
     },
 
     TextButtonNumbers:{
-        
-        
+        padding:0,
+        margin:0,
         alignItems:'center',
         justifyContent:'center',
         textAlign:"center",
